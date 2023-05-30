@@ -1,13 +1,13 @@
 import React from 'react'
 import AddNewNote from './AddNewNote'
-import AllNotes from './AllNotes'
+import ShowAllNotes from './ShowAllNotes'
 
-const Sidebar = ({notes}) => {
+const Sidebar = ({notes, onFormSubmit}) => {
   return (
     <aside className='sidebar'>
-      <h1>Notes</h1>
-      <AllNotes notes={notes}/>
-      <AddNewNote notes={notes}/>
+      <h1 className='main-title'>Notes</h1>
+      <ShowAllNotes notes={notes}/>
+      <AddNewNote notes={notes} onFormSubmit={onFormSubmit}/>
     </aside>
   )
 }

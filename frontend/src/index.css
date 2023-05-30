@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 :root {
   font-size: 62.5%;
   --primary-color: #2f3e46;
   --accent-color: #52796f;
-  --secondary-color: #e29578;
+  --secondary-color: #d5aeee;
   --back-color: #2f3e46;
 }
 
@@ -13,7 +15,7 @@
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   color: #fff;
 }
 
@@ -27,11 +29,35 @@ body {
   cursor: pointer;
 }
 
+.btn.change:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.btn.delete:hover {
+  background-color: lightcoral;
+  color: #fff;
+}
+
+.btn-form {
+  background-color: rgba(148,153,233,1);
+  color: #fff;
+  align-self: center;
+  border: 2px solid #fff;
+  font: inherit;
+  width: 10rem;
+  font-size: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
 .container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -45,13 +71,105 @@ body {
   gap: 3rem;
 }
 
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sidebar-item {
+  font-size: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: var(--secondary-color);
+}
+
+.main-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  align-self: center;
+}
+
+.aside-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font: inherit;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* .list-btn {
+  justify-content: center;
+  gap: 1rem;
+} */
+
+.note-form, .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.note-form {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.note-form.active {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  font: inherit;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.form-input:focus {
+  border: 2px solid var(--secondary-color);
+}
+
+.form-input.date {
+  align-self: center;
+}
+
 .list {
   flex: 5;
   background-color: var(--back-color);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 5rem;
+  gap: 3rem;
   align-items: center;
   padding: 3rem;
 }
@@ -61,15 +179,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem;
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  padding: 1.5rem;
+  background: radial-gradient(circle, rgba(213,174,238,1) 0%, rgba(148,153,233,1) 100%);
   border-radius: 1rem;
 }
 
 .note-text {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
-  color: var(--primary-color);
 }
 
 .btn-container {

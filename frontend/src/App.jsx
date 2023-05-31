@@ -27,12 +27,20 @@ const App = () => {
       id: generateId()
     }
 
-    console.log(newNote);
+    services.addNote(newNote).then(note => {
+      setInitialNotes(initialNotes.concat(note));
+      setSelectedNotes(selectedNotes.concat(note));
+    });
+  }
 
-    setInitialNotes(initialNotes.concat(newNote));
-    setSelectedNotes(selectedNotes.concat(newNote));
-
-    console.log(initialNotes, selectedNotes);
+  const handleDeleteNote = (id) => {
+    const confirmation = window.confirm('Are you sure?');
+    if (confirmation) {
+      services.deleteNote(id).then(response => {
+        setInitialNotes(initialNotes.filter(note => note.id !== id));
+        setSelectedNotes(selectedNotes.filter(note => note.id !== id));
+      });
+    }
   }
 
   const handleChooseNote = (id) => {
@@ -49,7 +57,7 @@ const App = () => {
   return (
     <div className='container'>
       <Sidebar notes={initialNotes} onFormSubmit={handleAddNote} onChooseNote={handleChooseNote}/>
-      <List notes={selectedNotes}/>
+      <List notes={selectedNotes} onDeleteNote={handleDeleteNote}/>
     </div>
   )
 }

@@ -7,6 +7,18 @@ const getAll = () => {
   return request.then(response => response.data);
 }
 
+const addNote = (newObj) => {
+  const request = axios.post(baseUrl, newObj);
+  return request.then(response => response.data);
+}
+
+const deleteNote = (id) => {
+  const request = axios.delete(`${baseUrl}/${id}`);
+  return request.then(response => response.data);
+}
+
 export default {
-  getAll
+  getAll,
+  addNote,
+  deleteNote
 }

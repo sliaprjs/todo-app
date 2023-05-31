@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "title": "test",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
+      "date": "2023-05-30",
+      "id": 1
+    },
+    {
+      "title": "another test",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
+      "date": "2023-05-30",
+      "id": 2
+    },
+    {
+      "title": "teeeeeeeest!!!",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
+      "date": "2023-05-30",
+      "id": 3
+    }
+  ]
+}

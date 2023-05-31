@@ -1,31 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import services from './services/axios';
+
 import List from './components/List'
 import Sidebar from './components/Sidebar'
 
-const NOTES = [
-  {
-    title: 'test',
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
-    date: '2023-05-30',
-    id: 1
-  },
-  {
-    title: 'another test',
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
-    date: '2023-05-30',
-    id: 2
-  },
-  {
-    title: 'teeeeeeeest!!!',
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
-    date: '2023-05-30',
-    id: 3
-  }
-];
-
 const App = () => {
-  const [initialNotes, setInitialNotes] = useState(NOTES);
-  const [selectedNotes, setSelectedNotes] = useState(NOTES);
+  const [initialNotes, setInitialNotes] = useState([]);
+  const [selectedNotes, setSelectedNotes] = useState([]);
+
+  useEffect(() => {
+    services.getAll().then(notes => {
+      setInitialNotes(notes);
+      setSelectedNotes(notes);
+    })
+  }, [])
 
   const generateId = () => Math.max(...initialNotes.map(note => note.id)) + 1;
 

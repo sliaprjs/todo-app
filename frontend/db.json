@@ -7,9 +7,9 @@
       "id": 1
     },
     {
-      "title": "another test",
+      "title": "second test",
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, optio!",
-      "date": "2023-05-30",
+      "date": "1990-12-24",
       "id": 2
     },
     {
@@ -19,9 +19,9 @@
       "id": 3
     },
     {
-      "title": "test",
-      "text": "test",
-      "date": "1990-12-24",
+      "title": "Another test",
+      "text": "lorem ipsum",
+      "date": "2023-05-31",
       "id": 4
     }
   ]

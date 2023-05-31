@@ -43,6 +43,25 @@ const App = () => {
     }
   }
 
+  const handleChangeNote = (id, title, date) => {
+
+    const note = initialNotes.find(note => note.id === id);
+
+    const newNote = {
+      ...note,
+      title,
+      date
+    }
+
+    console.log(newNote);
+
+    services.editNote(id, newNote).then(response => {
+      setInitialNotes(initialNotes.filter(note => note.id !== id).concat(response));
+      setSelectedNotes(selectedNotes.filter(note => note.id !== id).concat(response));
+      console.log(initialNotes, selectedNotes);
+    })
+  }
+
   const handleChooseNote = (id) => {
     console.log(id);
     if (id === 999) {
@@ -57,7 +76,7 @@ const App = () => {
   return (
     <div className='container'>
       <Sidebar notes={initialNotes} onFormSubmit={handleAddNote} onChooseNote={handleChooseNote}/>
-      <List notes={selectedNotes} onDeleteNote={handleDeleteNote}/>
+      <List notes={selectedNotes} onDeleteNote={handleDeleteNote} onChangeNote={handleChangeNote}/>
     </div>
   )
 }

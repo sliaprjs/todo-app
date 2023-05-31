@@ -25,8 +25,9 @@ const NOTES = [
 
 const App = () => {
   const [initialNotes, setInitialNotes] = useState(NOTES);
+  const [selectedNotes, setSelectedNotes] = useState(NOTES);
 
-  const generateId = () => Math.floor(Math.random() * 1000);
+  const generateId = () => Math.max(...initialNotes.map(note => note.id)) + 1;
 
   const handleAddNote = (e) => {
     e.preventDefault();
@@ -41,12 +42,26 @@ const App = () => {
     console.log(newNote);
 
     setInitialNotes(initialNotes.concat(newNote));
+    setSelectedNotes(selectedNotes.concat(newNote));
+
+    console.log(initialNotes, selectedNotes);
+  }
+
+  const handleChooseNote = (id) => {
+    console.log(id);
+    if (id === 999) {
+      setSelectedNotes(initialNotes);
+      return;
+    }
+
+    const note = initialNotes.find(note => note.id === id);
+    setSelectedNotes([note]);
   }
 
   return (
     <div className='container'>
-      <Sidebar notes={initialNotes} onFormSubmit={handleAddNote}/>
-      <List notes={initialNotes}/>
+      <Sidebar notes={initialNotes} onFormSubmit={handleAddNote} onChooseNote={handleChooseNote}/>
+      <List notes={selectedNotes}/>
     </div>
   )
 }

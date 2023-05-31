@@ -1,6 +1,5 @@
 import React from 'react'
 import Note from './Note'
-import AddNewNote from './AddNewNote'
 
 const List = ({notes}) => {
   return (

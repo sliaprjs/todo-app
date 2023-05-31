@@ -18,15 +18,15 @@ const AddNewNote = ({notes, onFormSubmit}) => {
       <form onSubmit={onFormSubmit} className={`note-form ${formVisible ? 'active' : null}`}>
         <div className="form-group">
           <label htmlFor="title">Title:</label>
-          <input className='form-input title'/>
+          <input className='form-input title' required/>
         </div>
         <div className="form-group">
           <label htmlFor="text">Text:</label>
-          <textarea className='form-input text' name='text' id="text" rows="3"></textarea>
+          <textarea className='form-input text' name='text' id="text" rows="3" required></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="date">Date:</label>
-          <input className='form-input date' type="date" name="date" id="date"/>
+          <input className='form-input date' type="date" name="date" id="date" required/>
         </div>
         <button className="btn btn-form" type='submit'>Submit</button>
       </form>

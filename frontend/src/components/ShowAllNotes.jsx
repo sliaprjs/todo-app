@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ShowAllNotes = ({notes}) => {
+const ShowAllNotes = ({notes, onChooseNote}) => {
   const [notesVisible, setNotesVisible] = useState(false);
 
   const handleNotesVisibility = () => {
@@ -16,7 +16,8 @@ const ShowAllNotes = ({notes}) => {
       </span>
     </button>
     {notesVisible ? <ul className="sidebar-list">
-      {notes.map(note => <li className="sidebar-item" key={note.id}>{note.title}</li>)}
+      <li className="sidebar-item" onClick={() => onChooseNote(999)}>all</li>
+      {notes.map(note => <li onClick={() => onChooseNote(note.id)} className="sidebar-item" key={note.id}>{note.title}</li>)}
     </ul> : null}
     </>
   )

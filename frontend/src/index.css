@@ -49,6 +49,11 @@ body {
   font-size: 1rem;
 }
 
+.btn-form:hover {
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
 ul {
   list-style: none;
 }
@@ -109,11 +114,6 @@ ul {
   color: #fff;
   font-size: 1.5rem;
 }
-
-/* .list-btn {
-  justify-content: center;
-  gap: 1rem;
-} */
 
 .note-form, .form-group {
   display: flex;
